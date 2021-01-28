@@ -17,10 +17,10 @@ const PaymentForm = ({
   backStep,
   shippingData,
   onCaptureCheckout,
-  timeout,
 }) => {
   const handleSubmit = async (event, elements, stripe) => {
     event.preventDefault();
+
     if (!stripe || !elements) return;
 
     const cardElement = elements.getElement(CardElement);
@@ -59,17 +59,16 @@ const PaymentForm = ({
 
       onCaptureCheckout(checkoutToken.id, orderData);
 
-      timeout();
-
       nextStep();
     }
   };
+
   return (
     <>
       <Review checkoutToken={checkoutToken} />
       <Divider />
       <Typography variant="h6" gutterBottom style={{ margin: "20px 0" }}>
-        Payment Method
+        Payment method
       </Typography>
       <Elements stripe={stripePromise}>
         <ElementsConsumer>
@@ -97,5 +96,4 @@ const PaymentForm = ({
     </>
   );
 };
-
 export default PaymentForm;

@@ -37,7 +37,7 @@ const AddressForm = ({ checkoutToken, next }) => {
 
   const options = shippingOptions.map((sO) => ({
     id: sO.id,
-    label: `${sO.description} - (${sO.price_formatted_with_symbol})`,
+    label: `${sO.description} - (${sO.price.formatted_with_symbol})`,
   }));
 
   const fetchShippingCountries = async (checkoutTokenId) => {
